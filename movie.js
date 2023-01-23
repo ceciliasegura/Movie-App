@@ -30,12 +30,17 @@ const url = "https://www.omdbapi.com/?apikey=d2a94d0&plot=full&i=" + id;
 
 //Variable para copiar la pelicula que recuperamos de la api
 let movie;
+//Lamamos para recuperar la información de la película a la api
 fetch(url)
     .then((response) => response.json())//parseamos la respuesta a un json
     .then((data) => {
+        //Guardamos en la variable global los datos de la película 
+        //para despues poder guardarlos si se da al botón de añadir a favoritos
         movie = data;
         console.log(data);
+        //Añadimos el titulo al p del titulo
         pTitle.innerText = data.Title;
+        //Añadimos la imagen y demás atributos
         img.src = data.Poster;
         pYear.innerText = data.Year;
         pDuration.innerText = data.Runtime;
@@ -47,7 +52,10 @@ fetch(url)
 //hace click se escribe la movie en firebase por el id de la pelicula
 const buttonFavorite = document.getElementById("add-favourite");
 buttonFavorite.addEventListener('click', () => {
+    //Creamos el doc, la película, en firebase, que luego guardaremos
+    //Si quisieramos  guardarlo en el local storage habría que cambiarlo aquí
     const docDatabase = doc(db, 'movies', id)
+    //Guardamos en firebase la película
     setDoc(docDatabase, movie)
         .then(() => {
             console.log("Document successfully written!");

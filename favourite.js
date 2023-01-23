@@ -16,6 +16,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
+//En vez de optener las peliculas como antes de la api, aquí las optenemos de firebase, 
+//en este caso de podría optener del localstrorage tambien por ejemplo
 const movies = getDocs(collection(db, "movies"));
 
 const divResultsMovies = document.querySelector("#results-movies");
@@ -41,15 +43,18 @@ movies
             pMovieYear.innerText = element.data().Year;
             divMovie.append(pMovieYear);
 
+            //Boton para redirigir a la vista de la info de la película, pasando el query param con el id
             const btnView = document.createElement("a");
             btnView.href = "./movie.html?id=" + element.data().imdbID;
             btnView.innerText = "view";
             divMovie.append(btnView);
 
+            //Añadimos el botón de eliminar de favoritos
             const btnDelete = document.createElement("button");
             btnDelete.innerText = "Delete";
             btnDelete.addEventListener("click", event => {
                 event.preventDefault();
+                //Cuando se clica el botón de eliminar favorito llama a la funcion de deleteFavourite
                 deleteFavourite(divMovie, element.data().imdbID)
             });
             divMovie.append(btnDelete);
@@ -61,8 +66,10 @@ movies
         })
     );
 
+//Esta funcion elimina el favorito de firebase y lo quita de la lista
 function deleteFavourite(divMovie, id) {
     console.log("Remove: " + id);
+    //Elimna la pelicula de firebase, si estuviera guardado en localstorage lo borraríamos aquí
     deleteDoc(doc(db, "movies", id))
         .then(() => {
             console.log("Document removed");
@@ -71,5 +78,6 @@ function deleteFavourite(divMovie, id) {
             console.error("Error removing document: ", error);
         });
 
+    //Elimina la pelicula de la lista
     divResultsMovies.removeChild(divMovie);
 }

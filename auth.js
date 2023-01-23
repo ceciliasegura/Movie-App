@@ -17,7 +17,9 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
+//Funcion para hacer login con firebase
 function login() {
+    //Llamar a la autenticación de faribase con redirect
     signInWithRedirect(auth, provider)
         .then((result) => {
             console.log("Login success " + result);
@@ -26,11 +28,14 @@ function login() {
         });
 }
 
+//Esta funcion comprueba si hay un redirect del login y si es así, hace un console
+//En caso de que no exista un user logado llama al login
 function initApp() {
     getRedirectResult(auth)
         .then((result) => {
             console.log("Redirect loging success " + result);
-            if(!auth._currentUser){
+            //Si el usuario no existe llama para hacer el login
+            if (!auth._currentUser) {
                 login();
             }
         }).catch((error) => {
@@ -38,6 +43,7 @@ function initApp() {
         });
 }
 
+//Cuando se carga la pagina se inizializa la autenticación
 window.onload = function () {
     initApp();
 };
