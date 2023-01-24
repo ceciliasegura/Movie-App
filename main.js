@@ -37,6 +37,7 @@ function findMovies() {
                 divMovie.append(pMovieYear);
 
                 const btnView = document.createElement("a");
+                btnView.className="button-vi"
                 btnView.href = "./movie.html?id=" + element.imdbID;
                 btnView.innerText = "view";
                 divMovie.append(btnView);

@@ -1,13 +1,87 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-
 }
 
 body {
     width: 100%;
+    background-color: black;
 }
+
+.div-tittle-movieapp {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 0px 10px;
+    font-size: medium;
+    background-color: rgb(187, 3, 233);
+    background: linear-gradient(90deg,
+            rgb(139, 37, 234) 0%,
+            rgb(18, 18, 19) 50%,
+            rgb(68, 61, 215) 100%)
+}
+
+
+.div-tittle-movieapp h1 {
+    padding: 10px;
+    color: #fff;
+    font: normal 48px/normal "Warnes", Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: normal;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    animation: neon 1s linear infinite alternate;
+}
+
+
+
+.div-tittle-movieapp a {
+
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: 20px;
+    padding-top: 30px;
+    text-decoration: normal;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    animation: neon 1s linear infinite alternate;
+
+}
+.div-tittle-movieapp a:hover {
+    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #0be0e0 , 0 0 70px #10d5d5 , 0 0 80px #1bebeb , 0 0 100px #03cece ;
+  }
+
+.movie-detail {
+    color: white;
+}
+
+.div-search-movie {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    padding: 10% 10% 10% 10%;
+    position:relative;
+}
+
 
 #results-movies {
     width: 100%;
@@ -15,8 +89,9 @@ body {
     flex-direction: row;
     gap: 50px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    /* margin-top: 2px; */
     justify-content: center;
+    padding-top: 20px;
 }
 
 .movie {
@@ -41,5 +116,34 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 100px 0px 100px;
+    padding: 8% 10% 10% 10%;
+    gap: 8px;
+
+}
+
+.pfavourite-movies {
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+
+.div-search-movie label {
+    font-size: 25px;
+}
+
+.button-vi {
+    width: 50px;
+    height: 20px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 2px;
+
+}
+
+.btnDelete{
+    width: 50px;
+    height: 20px;
 }

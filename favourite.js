@@ -45,12 +45,14 @@ movies
 
             //Boton para redirigir a la vista de la info de la película, pasando el query param con el id
             const btnView = document.createElement("a");
+            btnView.className="button-vi"
             btnView.href = "./movie.html?id=" + element.data().imdbID;
             btnView.innerText = "view";
             divMovie.append(btnView);
 
             //Añadimos el botón de eliminar de favoritos
             const btnDelete = document.createElement("button");
+            btnDelete.className= "btnDelete"
             btnDelete.innerText = "Delete";
             btnDelete.addEventListener("click", event => {
                 event.preventDefault();
