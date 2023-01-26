@@ -5,35 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title> 
-    <link rel="stylesheet" href="style.css"> 
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="div-tittle-movieapp">
-    <h1>Look4Movie</h1>
-    <a href="./favourites.html">Favourites</a>
-</div>
-
-    <form class="div-search-movie">
-
-        <label for="search-movie">Introduce el nombre de la pelicula</label>
-        <input type="submit" name="search-movie" id="search-movie">
-        <button name="search-movie" id="search-movie" onclick="findMovies()">Enviar</button>
-
-    </form>
-
-
-    <div id="results-movies">
-
+    <div class="div-tittle-movieapp">
+        <h1><a href="index.html">Look4Movie</a></h1>
+        <a href="./favourites.html">Favourites</a>
+        <p id="user-mail"></p>
+        <button id="log-out">Salir</button>
     </div>
 
+    <form action="." id="form">
+        <div class="div-search-movie">
 
-    <div class="container-cub">
-     <div class="lado" id="lado-a"></div>
-     <div clas="lado" id=" lado-b"></div>
-     <div class="lado" id="lado-c"></div>
-     <div class="lado" id="lado-d"></div>
+            <label for="search-movie">Introduce el nombre de la pelicula</label>
+            <input type="text" name="search-movie" id="search-movie" placeholder="">
+            <input type="submit" name="search-movie" id="search-movie">
+
+        </div>
+    </form>
+
+    <div id="results-movies">
 
     </div>
 
@@ -41,9 +35,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="auth.js" type="module"></script>
     <script src="main.js"></script>
-
-
-
 </body>
 
 </html>
