@@ -7,7 +7,7 @@ body {
     width: 100%;
     background-color: black;
 }
-/* nav */
+
 .div-tittle-movieapp {
     width: 100%;
     height: 70px;
@@ -24,7 +24,7 @@ body {
             rgb(68, 61, 215) 100%)
 }
 
-/* tittle lookformovie */
+
 .div-tittle-movieapp h1 {
     padding: 10px;
     color: #fff;
@@ -43,7 +43,7 @@ body {
 }
 
 
-/* favourites */
+
 .div-tittle-movieapp a {
 
     color: #fff;
@@ -63,11 +63,15 @@ body {
     animation: neon 1s linear infinite alternate;
 
 }
-.div-tittle-movieapp a:hover {
-    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #0be0e0 , 0 0 70px #10d5d5 , 0 0 80px #1bebeb , 0 0 100px #03cece ;
-  }
 
-/* input busqueda */
+.div-tittle-movieapp a:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #0be0e0, 0 0 70px #10d5d5, 0 0 80px #1bebeb, 0 0 100px #03cece;
+}
+
+.movie-detail {
+    color: white;
+}
+
 .div-search-movie {
     display: flex;
     flex-direction: row;
@@ -75,17 +79,18 @@ body {
     align-items: center;
     gap: 10px;
     color: white;
-    padding: 10% 10% 0% 10%;
+    padding: 10% 10% 4% 10%;
    
 }
 
-/* div creado donde se guardan las pelis */
+
 #results-movies {
     width: 100%;
     display: flex;
     flex-direction: row;
     gap: 50px;
     flex-wrap: wrap;
+    /* margin-top: 2px; */
     justify-content: center;
     padding-top: 20px;
 }
@@ -139,14 +144,18 @@ body {
 
 }
 
-.btnDelete{
+.btnDelete {
     width: 50px;
     height: 20px;
-
 }
 
+.divBtn {
+    display: flex;
+    justify-content: space-between;
+}
 
-/* div detail info */
-.movie-detail {
-    color: white;
+.movie {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

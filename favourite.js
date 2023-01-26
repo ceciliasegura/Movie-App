@@ -32,7 +32,7 @@ movies
             const pMovie = document.createElement("p");
             pMovie.innerText = element.data().Title;
             //añadimos el p al div de cada pelicula
-            divMovie.append(pMovie);
+            // divMovie.append(pMovie);
             //creamos una variable imgMovie para añadir la imagen de la pelicula 
             const imgMovie = document.createElement("img");
             imgMovie.src = element.data().Poster;
@@ -45,21 +45,28 @@ movies
 
             //Boton para redirigir a la vista de la info de la película, pasando el query param con el id
             const btnView = document.createElement("a");
-            btnView.className="button-vi"
+            btnView.className = "button-vi"
             btnView.href = "./movie.html?id=" + element.data().imdbID;
             btnView.innerText = "view";
-            divMovie.append(btnView);
+            // divMovie.append(btnView);
 
             //Añadimos el botón de eliminar de favoritos
             const btnDelete = document.createElement("button");
-            btnDelete.className= "btnDelete"
+            btnDelete.className = "btnDelete"
             btnDelete.innerText = "Delete";
             btnDelete.addEventListener("click", event => {
                 event.preventDefault();
                 //Cuando se clica el botón de eliminar favorito llama a la funcion de deleteFavourite
                 deleteFavourite(divMovie, element.data().imdbID)
+
+
             });
-            divMovie.append(btnDelete);
+
+            let divBtn = document.createElement("div");
+            divBtn.classList.add("divBtn");
+            divBtn.append(btnView, btnDelete)
+
+            divMovie.append(imgMovie, divBtn);
 
             //añadimos el div de cada pelicula al div global 
             divResultsMovies.append(divMovie)
