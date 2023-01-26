@@ -1,6 +1,7 @@
 //Inicializar firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
 import { getFirestore, getDocs, collection, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBjpvMTTvmSEuIppbL67JE_-Au5j6vJWRs",
@@ -15,6 +16,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore();
+
+//extraemos el userId de la autenticación
+const auth = getAuth();
+
+//aqui nos da igual la asincronia porque hasta que se llama a la api 
+//y el usuario pulsa añadir a favoritos alguno, ya se ha obtenido el user uid
+let userId;
+auth.onAuthStateChanged(function(user) {
+       userId = user.uid;
+});
+
 
 const pTitle = document.querySelector("#title");
 const img = document.querySelector("#img");
@@ -31,7 +43,7 @@ const url = "https://www.omdbapi.com/?apikey=d2a94d0&plot=full&i=" + id;
 
 //Obtenemos las peliculas de firestore, para que no deje cargar las que ya tenemos en favoritos
 //Hacemos await para esperar por la respuesta y no tener que hacer el then, de esta manera la promesa se reseulve y devuelve el resultado
-const moviesInDb = await getDocs(collection(db, "movies"));
+const moviesInDb = await getDocs(collection(db, "movies" + '-' + userId));
 
 //Variable para copiar la pelicula que recuperamos de la api
 let movie;
@@ -69,7 +81,7 @@ fetch(url)
                     arrayFav.push(data)
                     //Creamos el doc, la película, en firebase, que luego guardaremos
                     //Si quisieramos  guardarlo en el local storage habría que cambiarlo aquí
-                    const docDatabase = doc(db, 'movies', id)
+                    const docDatabase = doc(db, 'movies' + '-' + userId, id)
                     //Guardamos en firebase la película
                     setDoc(docDatabase, movie)
                         .then(() => {
