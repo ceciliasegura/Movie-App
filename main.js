@@ -5,6 +5,8 @@ const divResultsMovies = document.querySelector("#results-movies");
 const inputMovieName = document.querySelector("#search-movie");
 //Cojo el form
 const form = document.querySelector("#form");
+
+const apikey='d2a94d0';
 //añado el event listener al submit del form para que cada vez que se dé al botón de enviar, se busque
 //la pelicula que ha introducido el usuario. 
 //se necesita poner el export porque cuando cargamos el script le ponemos de tipo module, para poder meter firebase
