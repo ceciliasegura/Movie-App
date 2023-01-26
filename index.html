@@ -11,29 +11,20 @@
 
 <body>
 <div class="div-tittle-movieapp">
-    <h1>Look4Movie</h1>
+    <h1><a href="index.html">Look4Movie</a></h1>
     <a href="./favourites.html">Favourites</a>
 </div>
 
-    <form class="div-search-movie">
+    <div class="div-search-movie">
 
         <label for="search-movie">Introduce el nombre de la pelicula</label>
-        <input type="submit" name="search-movie" id="search-movie">
+        <input type="text" name="search-movie" id="search-movie" placeholder="">
         <button name="search-movie" id="search-movie" onclick="findMovies()">Enviar</button>
-
-    </form>
-
-
-    <div id="results-movies">
 
     </div>
 
 
-    <div class="container-cub">
-     <div class="lado" id="lado-a"></div>
-     <div clas="lado" id=" lado-b"></div>
-     <div class="lado" id="lado-c"></div>
-     <div class="lado" id="lado-d"></div>
+    <div id="results-movies">
 
     </div>
 
@@ -41,9 +32,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="auth.js" type="module"></script>
     <script src="main.js"></script>
-
-
-
 </body>
 
 </html>

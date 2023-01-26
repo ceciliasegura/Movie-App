@@ -25,6 +25,7 @@ const pSinopsis = document.querySelector("#sinopsis");
 
 //Obtenemos el quiery params
 const queryParams = window.location.href.slice(window.location.href.indexOf('?') + 1);
+//sacamos el valor del query param 
 const id = queryParams.split("=")[1];
 const url = "https://www.omdbapi.com/?apikey=d2a94d0&plot=full&i=" + id;
 
@@ -46,21 +47,38 @@ fetch(url)
         pDuration.innerText = data.Runtime;
         pDirector.innerText = data.Director;
         pSinopsis.innerText = data.Plot;
-    });
 
-//Añadimos el listener al boton de favoritos, que cuando se 
-//hace click se escribe la movie en firebase por el id de la pelicula
-const buttonFavorite = document.getElementById("add-favourite");
-buttonFavorite.addEventListener('click', () => {
-    //Creamos el doc, la película, en firebase, que luego guardaremos
-    //Si quisieramos  guardarlo en el local storage habría que cambiarlo aquí
-    const docDatabase = doc(db, 'movies', id)
-    //Guardamos en firebase la película
-    setDoc(docDatabase, movie)
-        .then(() => {
-            console.log("Document successfully written!");
+
+        let arrayFav = [];
+
+        //Añadimos el listener al boton de favoritos, que cuando se
+        //hace click se escribe la movie en firebase por el id de la pelicula
+
+        const buttonFavorite = document.getElementById("add-favourite");
+        buttonFavorite.addEventListener('click', () => {
+            if (!arrayFav.find((e) => e.imdbID == data.imdbID)) {
+                arrayFav.push(data)
+                //Creamos el doc, la película, en firebase, que luego guardaremos
+                //Si quisieramos  guardarlo en el local storage habría que cambiarlo aquí
+                const docDatabase = doc(db, 'movies', id)
+                //Guardamos en firebase la película
+                setDoc(docDatabase, movie)
+                    .then(() => {
+                        console.log("Document successfully written!");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+
+                buttonFavorite.innerText = "Already exists in favorites"
+                buttonFavorite.style.backgroundColor = "blueviolet";
+                buttonFavorite.style.color = "white";
+
+            }
+
+
+
         })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
-})
+
+
+    });

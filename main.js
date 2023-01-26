@@ -1,4 +1,4 @@
-let apikey=d2a94d0;
+
 //cojemos el div donde van a ir los resultados
 const divResultsMovies = document.querySelector("#results-movies");
 // cojo el input
@@ -9,21 +9,21 @@ const inputMovieName = document.querySelector("#search-movie");
 function findMovies() {
     // declaramos la variable url que es donde se llama a la api concatenandola con 
     //el valor que ha metido el usuario en el input, y así generamos la url dinamica.
-    const url = https://www.omdbapi.com/?apikey=${apikey}&type=movie&s=` + inputMovieName.value;
+    const url = "https://www.omdbapi.com/?apikey=d2a94d0&type=movie&s=" + inputMovieName.value;
 
     fetch(url)
         .then((response) => response.json())//parseamos la respuesta a un json
         .then((data) => {
+            
+            divResultsMovies.innerHTML = "";
+            
             console.log(data)
             //vamos a cargar las peliculas que nos devuelve la api en el html. hacemos un
             //forEach para recorrer todos los elementos del array que nos devuelve el json 
             data.Search.forEach(element => {
-                //creamos un div para meter los atributos de cada pelicula
+                 //creamos un div para meter los atributos de cada pelicula
                 const divMovie = document.createElement("div");
                 divMovie.className = "movie";
-                if (divMovie != "") {
-                    divMovie.remove.children
-                }
                 //creamos una p para mostrar el título de cada pelicula 
                 const pMovie = document.createElement("p");
                 pMovie.innerText = element.Title;
@@ -40,7 +40,7 @@ function findMovies() {
                 divMovie.append(pMovieYear);
 
                 const btnView = document.createElement("a");
-                btnView.className = "button-vi"
+                btnView.className="button-vi"
                 btnView.href = "./movie.html?id=" + element.imdbID;
                 btnView.innerText = "view";
                 divMovie.append(btnView);
