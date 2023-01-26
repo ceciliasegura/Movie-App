@@ -25,15 +25,12 @@ const divResultsMovies = document.querySelector("#results-movies");
 movies
     .then(data =>
         data.forEach(element => {
-            console.log("element:", element.data())
             //creamos un div para meter los atributos de cada pelicula
             const divMovie = document.createElement("div");
             divMovie.className = "movie";
             //creamos una p para mostrar el título de cada pelicula 
             const pMovie = document.createElement("p");
             pMovie.innerText = element.data().Title;
-            console.log("element data:", element.data().Title);
-            divMovie.append(pMovie);
             //añadimos el p al div de cada pelicula
             // divMovie.append(pMovie);
             //creamos una variable imgMovie para añadir la imagen de la pelicula 
