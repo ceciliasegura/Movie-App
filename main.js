@@ -14,11 +14,12 @@ function findMovies() {
     fetch(url)
         .then((response) => response.json())//parseamos la respuesta a un json
         .then((data) => {
+            divResultsMovies.innerText = ""
             console.log(data)
             //vamos a cargar las peliculas que nos devuelve la api en el html. hacemos un
             //forEach para recorrer todos los elementos del array que nos devuelve el json 
             data.Search.forEach(element => {
-                //creamos un div para meter los atributos de cada pelicula
+                 //creamos un div para meter los atributos de cada pelicula
                 const divMovie = document.createElement("div");
                 divMovie.className = "movie";
                 //creamos una p para mostrar el título de cada pelicula 
