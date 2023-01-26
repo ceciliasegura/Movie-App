@@ -23,7 +23,12 @@ const movies = getDocs(collection(db, "movies"));
 const divResultsMovies = document.querySelector("#results-movies");
 
 movies
-    .then(data =>
+    .then(data =>{
+        //Si existen películas guardadas, quitamos el element p de no hay favoritos, sobreescribiendo el div
+        if (data.size > 0) {
+            divResultsMovies.innerText = "";
+        }
+
         data.forEach(element => {
             console.log("element:", element.data())
             //creamos un div para meter los atributos de cada pelicula
@@ -76,7 +81,7 @@ movies
 
 
         })
-    );
+    } );
 
 //Esta funcion elimina el favorito de firebase y lo quita de la lista
 function deleteFavourite(divMovie, id) {
@@ -92,4 +97,9 @@ function deleteFavourite(divMovie, id) {
 
     //Elimina la pelicula de la lista
     divResultsMovies.removeChild(divMovie);
+
+    //Si no hay favoritos, porque se han eliminado todos ponemos el p como que no se han encontrado
+    if (divResultsMovies.childElementCount == 0) {
+        divResultsMovies.innerHTML = '<p style="color: white;">No se han encontrado favoritos</p>'
+    }
 }
