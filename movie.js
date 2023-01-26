@@ -50,7 +50,7 @@ fetch(url)
 
 
         let arrayFav = [];
-        
+
         //Añadimos el listener al boton de favoritos, que cuando se
         //hace click se escribe la movie en firebase por el id de la pelicula
 
@@ -70,9 +70,14 @@ fetch(url)
                         console.error("Error writing document: ", error);
                     });
 
-            } else {
-                buttonFavorite.innerText = "Ya Existe"
+                buttonFavorite.innerText = "Already exists in favorites"
+                buttonFavorite.style.backgroundColor = "blueviolet";
+                buttonFavorite.style.color = "white";
+
             }
+
+
+
         })
 
 

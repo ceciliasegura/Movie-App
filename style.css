@@ -68,9 +68,6 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #0be0e0, 0 0 70px #10d5d5, 0 0 80px #1bebeb, 0 0 100px #03cece;
 }
 
-/* .movie-detail {
-    color: white;
-} */
 
 .div-search-movie {
     display: flex;
@@ -164,4 +161,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+#add-favourite{
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 15px;
 }
