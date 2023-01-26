@@ -68,9 +68,9 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #0be0e0, 0 0 70px #10d5d5, 0 0 80px #1bebeb, 0 0 100px #03cece;
 }
 
-.movie-detail {
+/* .movie-detail {
     color: white;
-}
+} */
 
 .div-search-movie {
     display: flex;
@@ -90,21 +90,26 @@ body {
     flex-direction: row;
     gap: 50px;
     flex-wrap: wrap;
-    /* margin-top: 2px; */
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 40px;
+
 }
 
 .movie {
+    color: white;
     border: 2px;
     border-style: solid;
     padding: 10px;
     display: flex;
     flex-direction: column;
+
 }
 
 .movie p {
     width: 80%;
+    font-weight: bold;
+
+    
 }
 
 .movie img {
@@ -119,6 +124,7 @@ body {
     justify-content: center;
     padding: 8% 10% 10% 10%;
     gap: 8px;
+    color: white;
 
 }
 

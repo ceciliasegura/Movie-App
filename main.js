@@ -14,7 +14,9 @@ function findMovies() {
     fetch(url)
         .then((response) => response.json())//parseamos la respuesta a un json
         .then((data) => {
-            divResultsMovies.innerText = ""
+            
+            divResultsMovies.innerHTML = "";
+            
             console.log(data)
             //vamos a cargar las peliculas que nos devuelve la api en el html. hacemos un
             //forEach para recorrer todos los elementos del array que nos devuelve el json 
