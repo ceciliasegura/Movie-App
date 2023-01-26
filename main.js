@@ -9,7 +9,7 @@ const inputMovieName = document.querySelector("#search-movie");
 function findMovies() {
     // declaramos la variable url que es donde se llama a la api concatenandola con 
     //el valor que ha metido el usuario en el input, y así generamos la url dinamica.
-    const url = https://www.omdbapi.com/?apikey=${apikey}&type=movie&s=` + inputMovieName.value;
+    const url = `https://www.omdbapi.com/?apikey=${apikey}&type=movie&s=${inputMovieName.value}`;
 
     fetch(url)
         .then((response) => response.json())//parseamos la respuesta a un json
