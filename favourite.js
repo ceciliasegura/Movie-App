@@ -87,11 +87,7 @@ auth.onAuthStateChanged(function (user) {
 
             })
         });
-});
-
-
-
-//Esta funcion elimina el favorito de firebase y lo quita de la lista
+        //Esta funcion elimina el favorito de firebase y lo quita de la lista
 function deleteFavourite(divMovie, id) {
     console.log("Remove: " + id);
     //Elimna la pelicula de firebase, si estuviera guardado en localstorage lo borraríamos aquí
@@ -111,3 +107,7 @@ function deleteFavourite(divMovie, id) {
         divResultsMovies.innerHTML = '<p style="color: white;">No se han encontrado favoritos</p>'
     }
 }
+});
+
+
+
